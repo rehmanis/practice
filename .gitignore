@@ -1,0 +1,8 @@
+# vscode
+.vscode
+
+# python compiled files
+__pycache__/
+
+# env
+env/
