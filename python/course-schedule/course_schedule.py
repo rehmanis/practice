@@ -1,6 +1,9 @@
 import sys
+import os
 from typing import List
 from typing import Dict
+
+FILE_PATH = os.path.abspath(__file__)
 
 
 class Solution:
@@ -97,14 +100,3 @@ class Solution:
                 return False
 
         return True
-
-
-def main(argv, argc):
-    sol = Solution()
-    numCourses = 2
-    edges = [[0, 1], [1, 0]]
-    print(sol.can_finish(numCourses, edges))
-
-
-if __name__ == "__main__":
-    main(sys.argv, len(sys.argv))

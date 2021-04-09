@@ -6,3 +6,13 @@ __pycache__/
 
 # env
 env/
+
+# coverage
+.coverage
+htmlcov
+
+# tox
+.tox
+
+# Distribution / packaging
+*.egg-info/
