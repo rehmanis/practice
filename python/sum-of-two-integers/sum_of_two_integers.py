@@ -47,12 +47,3 @@ class Solution:
             result |= -2**(max_bits - 1)
 
         return result
-
-
-def main(argc, argv):
-    s = Solution()
-    print(s.get_sum(-15, 16, 5))
-
-
-if __name__ == "__main__":
-    main(sys.argv, len(sys.argv))
