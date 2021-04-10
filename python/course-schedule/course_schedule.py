@@ -1,7 +1,6 @@
-import sys
 import os
-from typing import List
 from typing import Dict
+from typing import List
 
 FILE_PATH = os.path.abspath(__file__)
 
@@ -38,7 +37,7 @@ class Solution:
         adj: Dict[int, List[int]],
         v: int,
         visited: List[bool],
-        onstack: List[bool]
+        onstack: List[bool],
     ) -> bool:
         """Computes whether a directed graph as a cycle
 
@@ -59,9 +58,8 @@ class Solution:
 
         for neighbor in adj[v]:
 
-            if (
-                not visited[neighbor] and
-                self.has_cycle(adj, neighbor, visited, onstack)
+            if not visited[neighbor] and self.has_cycle(
+                adj, neighbor, visited, onstack
             ):
                 return True
             elif onstack[neighbor]:
