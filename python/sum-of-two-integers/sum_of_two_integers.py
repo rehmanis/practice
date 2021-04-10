@@ -2,7 +2,6 @@ import sys
 
 
 class Solution:
-
     def __init__(self, bit_size: int):
         """initialise the solution class for a given bit size. Example if
         bit_size = 11 the the range of integers supported is [-1024, 1023]
@@ -11,8 +10,8 @@ class Solution:
         :type bit_size: int
         """
         self._bit_size = bit_size
-        self._tmin = -2**(bit_size - 1)
-        self._tmax = 2**(bit_size - 1) - 1
+        self._tmin = -(2 ** (bit_size - 1))
+        self._tmax = 2 ** (bit_size - 1) - 1
 
     def get_sum(self, a: int, b: int) -> int:
         """finds the sum of two number without using '+' or '-' opperators
@@ -58,9 +57,9 @@ class Solution:
         # leading bits from bit max_bits onwards. We can do this by ORing with
         # the TMIN which is -1024 for max_bits = 11
         if (
-            (b < 0 and a < 0) or
-            (b < 0 and abs(b) > a) or
-            (a < 0 and abs(a) > b)
+            (b < 0 and a < 0)
+            or (b < 0 and abs(b) > a)
+            or (a < 0 and abs(a) > b)
         ):
             result |= self._tmin
 

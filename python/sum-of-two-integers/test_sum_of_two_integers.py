@@ -1,5 +1,5 @@
-from sum_of_two_integers import Solution
 import pytest
+from sum_of_two_integers import Solution
 
 
 @pytest.mark.parametrize(
@@ -10,8 +10,8 @@ import pytest
         (10, 15, 11, 25),  # add both positive
         (1023, -23, 11, 1000),  # add -ve < +ve
         (0, 0, 11, 0),  # add zeros
-        (4294967295, -2147483641, 33, 2147483654)  # add big numbers
-    ]
+        (4294967295, -2147483641, 33, 2147483654),  # add big numbers
+    ],
 )
 def test_get_sum_without_plus_minus_ops_valid_input(a, b, bits, expected):
     sol = Solution(bits)
