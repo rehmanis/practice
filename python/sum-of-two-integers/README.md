@@ -1,6 +1,6 @@
-# <a href="https://leetcode.com/problems/sum-of-two-integers/"> Leet Code Problem 207 Course Schedule</a>
+# <a href="https://leetcode.com/problems/sum-of-two-integers/"> Leet Code Problem 371 Sum of Two Integers</a>
 
-## Problem Statment
+## Problem Statement
 
 Given two integers `a` and `b`, return the sum of the two integers without using the operators `+` and `-`.
 

@@ -1,6 +1,7 @@
 # <a href="https://leetcode.com/problems/course-schedule"> Leet Code Problem 207 Course Schedule</a>
 
-## Problem Statment
+## Problem Statement
+
 There are a total of ``numCourses`` courses you have to take, labeled from ``0`` to ``numCourses - 1``.
 You are given an array ``prerequisites`` where ``prerequisites[i] = [ai, bi]`` indicates that you must
 take course ``bi`` first if you want to take course ``ai``.
