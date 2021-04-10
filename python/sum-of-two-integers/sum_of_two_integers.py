@@ -2,22 +2,40 @@ import sys
 
 
 class Solution:
-    def get_sum(self, a: int, b: int, max_bits) -> int:
 
-        TMAX = 2**(max_bits - 1) - 1
-        TMIN = -2**(max_bits - 1)
+    def __init__(self, bit_size: int):
+        """initialise the solution class for a given bit size. Example if
+        bit_size = 11 the the range of integers supported is [-1024, 1023]
 
-        if a > TMAX or a < TMIN:
+        :param bit_size: the max bit size supported
+        :type bit_size: int
+        """
+        self._bit_size = bit_size
+        self._tmin = -2**(bit_size - 1)
+        self._tmax = 2**(bit_size - 1) - 1
+
+    def get_sum(self, a: int, b: int) -> int:
+        """finds the sum of two number without using '+' or '-' opperators
+
+        :param a: the first operand, a signed number
+        :type a: int
+        :param b: the second operand, a signed number
+        :type b: int
+        :return: the sum of a and b
+        :rtype: int
+        """
+
+        if a > self._tmax or a < self._tmin:
             print(
                 f"Error: signed integer '{a}' cannot be supported by "
-                f"{max_bits} bits"
+                f"{self._bit_size} bits"
             )
             sys.exit(1)
 
-        if b > TMAX or b < TMIN:
+        if b > self._tmax or b < self._tmin:
             print(
                 f"Error: signed integer '{b}' cannot be supported by "
-                f"{max_bits} bits"
+                f"{self._bit_size} bits"
             )
             sys.exit(1)
 
@@ -26,7 +44,7 @@ class Solution:
         result = 0
 
         # we use XOR to sum each individual bits
-        for _ in range(max_bits):
+        for _ in range(self._bit_size):
             # need MASK to only XOR the current bit
             result |= (a ^ b ^ carry) & bit_mask
             # keep track of carry bit i.e the overflow bit
@@ -44,6 +62,6 @@ class Solution:
             (b < 0 and abs(b) > a) or
             (a < 0 and abs(a) > b)
         ):
-            result |= -2**(max_bits - 1)
+            result |= self._tmin
 
         return result

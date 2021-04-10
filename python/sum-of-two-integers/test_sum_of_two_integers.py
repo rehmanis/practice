@@ -14,8 +14,8 @@ import pytest
     ]
 )
 def test_get_sum_without_plus_minus_ops_valid_input(a, b, bits, expected):
-    sol = Solution()
-    result = sol.get_sum(a, b, bits)
+    sol = Solution(bits)
+    result = sol.get_sum(a, b)
 
     assert result == expected
 
@@ -24,6 +24,6 @@ def test_get_sum_without_plus_minus_ops_valid_input(a, b, bits, expected):
     "a, b, bits", [(-100, 1, 7), (-16, 16, 5), (15, 128, 8)]
 )
 def test_get_sum_without_plus_minus_ops_invalid_inputs(a, b, bits):
-    sol = Solution()
+    sol = Solution(bits)
     with pytest.raises(SystemExit):
-        sol.get_sum(a, b, bits)
+        sol.get_sum(a, b)
