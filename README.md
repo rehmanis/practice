@@ -1,4 +1,4 @@
-# Leetcode solved problems
+# Practice programming problems
 
 ![test suite](https://github.com/rehmanis/leetcode/actions/workflows/tests.yml/badge.svg) [![codecov](https://codecov.io/gh/rehmanis/leetcode/branch/main/graph/badge.svg?token=ClJ7h7BfIl)](https://codecov.io/gh/rehmanis/leetcode) [![pre-commit.ci status](https://results.pre-commit.ci/badge/github/rehmanis/leetcode/main.svg)](https://results.pre-commit.ci/latest/github/rehmanis/leetcode/main)
 
