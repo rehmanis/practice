@@ -77,8 +77,8 @@ class Solution:
         """
         row, col = start
 
-        # if no row or col is out of bounds, or if the height of previous
-        # locations is greater than current one then terminate dfs
+        # if row or col is out of bounds, or if the height of previous
+        # locations is greater than current one, terminate dfs
         if (
             row >= len(heights)
             or col >= len(heights[0])
