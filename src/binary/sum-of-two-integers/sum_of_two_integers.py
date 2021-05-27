@@ -56,11 +56,7 @@ class Solution:
         # In case the result would be negative, we need to append 1s to all
         # leading bits from bit max_bits onwards. We can do this by ORing with
         # the TMIN which is -1024 for max_bits = 11
-        if (
-            (b < 0 and a < 0)
-            or (b < 0 and abs(b) > a)
-            or (a < 0 and abs(a) > b)
-        ):
+        if (b < 0 and a < 0) or (b < 0 and abs(b) > a) or (a < 0 and abs(a) > b):
             result |= self._tmin
 
         return result

@@ -20,9 +20,7 @@ def test_get_sum_without_plus_minus_ops_valid_input(a, b, bits, expected):
     assert result == expected
 
 
-@pytest.mark.parametrize(
-    "a, b, bits", [(-100, 1, 7), (-16, 16, 5), (15, 128, 8)]
-)
+@pytest.mark.parametrize("a, b, bits", [(-100, 1, 7), (-16, 16, 5), (15, 128, 8)])
 def test_get_sum_without_plus_minus_ops_invalid_inputs(a, b, bits):
     sol = Solution(bits)
     with pytest.raises(SystemExit):
