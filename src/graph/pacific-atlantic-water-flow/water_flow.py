@@ -4,9 +4,7 @@ from typing import Tuple
 
 
 class Solution:
-    def pacific_atlantic(
-        self, heights: List[List[int]]
-    ) -> Set[Tuple[int, int]]:
+    def pacific_atlantic(self, heights: List[List[int]]) -> Set[Tuple[int, int]]:
         """finds the set of locations(row, col) in a grid heights from which
         water can flow to both the pacific and Atlantic oceans. Water in each
         cell can only follow either up, down, left or right and can only flow

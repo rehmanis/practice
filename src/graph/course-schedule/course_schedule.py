@@ -10,9 +10,7 @@ class Solution:
     prerequisites all courses
     """
 
-    def compute_adj_list(
-        self, edges: List[int], numNodes: int
-    ) -> Dict[int, List[int]]:
+    def compute_adj_list(self, edges: List[int], numNodes: int) -> Dict[int, List[int]]:
         """Compute adjacency list(graph) from given number of nodes and edges
 
         :param edges: a list of directed edges
@@ -69,9 +67,7 @@ class Solution:
 
         return False
 
-    def can_finish(
-        self, numCourses: int, prerequisites: List[List[int]]
-    ) -> bool:
+    def can_finish(self, numCourses: int, prerequisites: List[List[int]]) -> bool:
         """Finds whether all course can be completed given a list
         of prerequisites
 
