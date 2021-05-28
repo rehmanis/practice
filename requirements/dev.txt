@@ -16,6 +16,8 @@ click==7.1.2
     # via pip-tools
 colorama==0.4.4
     # via pytest
+coverage[toml]==5.5
+    # via pytest-cov
 distlib==0.3.1
     # via virtualenv
 filelock==3.0.12
@@ -48,14 +50,19 @@ pyflakes==2.3.1
     # via flake8
 pyparsing==2.4.7
     # via packaging
-pytest==6.2.3
+pytest-cov==2.12.0
     # via -r requirements\tests.in
+pytest==6.2.3
+    # via
+    #   -r requirements\tests.in
+    #   pytest-cov
 pyyaml==5.4.1
     # via pre-commit
 six==1.15.0
     # via virtualenv
 toml==0.10.2
     # via
+    #   coverage
     #   pep517
     #   pre-commit
     #   pytest
