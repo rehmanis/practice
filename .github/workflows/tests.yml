@@ -42,7 +42,7 @@ jobs:
         with:
           path: ${{ steps.pip-cache.outputs.dir }}
           key: pip|${{ runner.os }}|${{ matrix.python }}|${{ hashFiles('requirements/*.txt') }}
-      - run: pip install tox codecov
+      - run: pip install tox pytest-cov
       - run: tox -e py
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v1
