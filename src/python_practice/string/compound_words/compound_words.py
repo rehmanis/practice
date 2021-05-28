@@ -1,7 +1,7 @@
 """
-Filename: CompoundWordFinder.py
-Python version: python 3.8
-Usage: python CompoundWordFinder.py
+Filename: compound_words.py
+Python version: python >= 3.6
+Usage: python compound_words.py
 Description: finds all compound words from words inputted into stdin
 Assumption:
     1- words are only made up of lower case english alphabets
