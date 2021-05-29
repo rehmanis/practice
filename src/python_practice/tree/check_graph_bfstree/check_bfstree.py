@@ -8,7 +8,6 @@ def is_graph_bfstree_recursive(graph: List[List[int]], root: int) -> bool:
     Note: bst is one where the parent nodes key is greater then all
     of the keys in its left subtree and less than all key in its right subtree
 
-
     Strategy is to store the current min and max values. The current node must be
     within this range for it to be bstree. We start with min -inf and max inf. For
     the right neighbor i.e node less than current root we recursively call the
