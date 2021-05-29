@@ -1,5 +1,5 @@
 import pytest
-from check_bfstree import is_graph_bfstree_inplace
+from check_bfstree import is_graph_bfstree_recursive
 
 
 @pytest.mark.parametrize(
@@ -21,6 +21,6 @@ from check_bfstree import is_graph_bfstree_inplace
     ],
 )
 def test_is_bfstree_private(graph, root, expected):
-    result = is_graph_bfstree_inplace(graph, root)
+    result = is_graph_bfstree_recursive(graph, root)
 
     assert result == expected

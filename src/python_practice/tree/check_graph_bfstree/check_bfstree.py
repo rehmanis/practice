@@ -1,12 +1,23 @@
 from typing import List
 
 
-def is_graph_bfstree_inplace(graph: List[List[int]], root: int) -> bool:
+def is_graph_bfstree_recursive(graph: List[List[int]], root: int) -> bool:
     """given a acyclic complete graph, returns whether it is a binary search tree
     or not.
 
     Note: bst is one where the parent nodes key is greater then all
     of the keys in its left subtree and less than all key in its right subtree
+
+
+    Strategy is to store the current min and max values. The current node must be
+    within this range for it to be bstree. We start with min -inf and max inf. For
+    the right neighbor i.e node less than current root we recursively call the
+    function but with root as the right node and min value as the current root value
+    as we know that all values in the right subtree must be greater than this current
+    root i.e. this new min value (we keep the max the same as before). For left
+    subtree we recursively call function on left node as root, and max value to be
+    current root. Parent is also passed during recursion to make sure not to visit
+    it again
 
     :param graph: an adjacency list where index is the node number and list at
                   that index is its neighbors
@@ -16,16 +27,6 @@ def is_graph_bfstree_inplace(graph: List[List[int]], root: int) -> bool:
     :return: True if graph is bst for the given root, False otherwise
     :rtype: bool
     """
-
-    # Strategy is to store the current min and max values. The current node must be
-    # within this range for it to be bstree. We start with min -inf and max inf. For
-    # the right neighbor i.e node less than current root we recursively call the
-    # function but with root as the right node and min value as the current root value
-    # as we know that all values in the right subtree must be greater than this current
-    # root i.e. this new min value (we keep the max the same as before). For left
-    # subtree we recursively call function on left node as root, and max value to be
-    # current root. Parent is also passed during recursion to make sure not to visit
-    # it again
 
     return _is_graph_bfstree(graph, root, -1, float("-inf"), float("inf"))
 
