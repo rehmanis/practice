@@ -1,0 +1,3 @@
+location,employee,favorite fruit,details,favorite movie
+Austin,Alice,Apple,likes red apples,Batman
+Boston,Bob,Bosc Pear,likes yellow pears,Batman
