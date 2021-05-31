@@ -105,3 +105,21 @@ class TestCsvApi:
         result = csv_handle.get_csv_headers()
 
         assert result == expected[0]
+
+
+@pytest.mark.parametrize("filename", [("empty_csv.txt")], scope="class")
+class TestCsvApiOnEmptyFile:
+    def test_get_csv_num_rows(self, csv_handle):
+        result = csv_handle.get_num_rows()
+
+        assert result == 0
+
+    def test_get_csv_num_cols(self, csv_handle):
+        result = csv_handle.get_num_cols()
+
+        assert result == 0
+
+    def test_get_csv_headers(self, csv_handle):
+        result = csv_handle.get_csv_headers()
+
+        assert result == []
