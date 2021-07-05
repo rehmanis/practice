@@ -1,0 +1,11 @@
+{
+    "FLOORS" : [
+        {
+            "parking_spots": {
+                "MOTORCYCLE": 2, "COMPACT": 10, "LARGE": 5
+            },
+        }
+    ],
+    "parking_strategy" : "first_come_basis"
+
+}
