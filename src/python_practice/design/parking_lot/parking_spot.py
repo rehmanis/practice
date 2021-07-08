@@ -22,6 +22,10 @@ class ParkingSpot(ABC):
     def is_occupied(self):
         return self._is_occupied
 
+    @is_occupied.setter
+    def is_occupied(self, val):
+        self._is_occupied = val
+
     @abstractclassmethod
     def get_dimension(self):
         pass

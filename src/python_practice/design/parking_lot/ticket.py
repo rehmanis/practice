@@ -11,11 +11,16 @@ class ParkingTicket:
         self._error_msg = None
 
         if spot is None:
-            self._error_msg = "Parking lot at full capacity. Please come back later"
+            self._error_msg = "Full capacity."
+
+    def __repr__(self) -> str:
+        return (
+            f"<TICKET: {self._id}, {self._spot}, {self._issue_time}, {self._error_msg}>"
+        )
 
     @property
     def spot(self):
-        return self.spot
+        return self._spot
 
     @property
     def id(self):

@@ -1,6 +1,5 @@
 from terminals import Terminal
-
-from src.python_practice.design.parking_lot.ticket import ParkingTicket
+from ticket import ParkingTicket
 
 
 class VehicleEntryEvent:
@@ -15,19 +14,22 @@ class VehicleEntryEvent:
         self._vehicle_id = vehicle_id
 
     def get_vehicle_id(self):
-        pass
+        return self._vehicle_id
 
     def get_spot_type(self) -> str:
-        pass
+        return self._spot_type
 
     def get_terminal(self) -> Terminal:
-        pass
+        return self._terminal
 
 
 class VehicleExitEvent:
     def __init__(self, ticket, terminal):
         self._ticket = ticket
         self._terminal = terminal
+
+    def __repr__(self) -> str:
+        return f"<EXIT_EVENT: {self._ticket}, {self._terminal}>"
 
     # this gets triggered by some scanner when vehicle is at
     # the exit terminal
