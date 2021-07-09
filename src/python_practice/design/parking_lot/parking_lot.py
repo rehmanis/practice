@@ -15,7 +15,7 @@ from ticket import ParkingTicket
 
 
 class ParkingLot:
-    def __init__(self, zip, **config):
+    def __init__(self, zip: str, **config):
         self._zip = zip
         self._billing_strategy = None
         self._assignment_strategy = None
@@ -28,12 +28,12 @@ class ParkingLot:
             assign_strategy, spots=self._spots
         )
 
-    def _init_terminals(self, **config):
+    def _init_terminals(self, **config) -> None:
         for terminal_type, freq in config["terminals"].items():
             terminals = terminal_factory.batch_create(terminal_type, freq, **config)
             self._terminals[terminal_type] = terminals
 
-    def _int_spots(self, **config):
+    def _int_spots(self, **config) -> None:
         for level in config["levels"]:
             for spot_type, freq in level["parking_spots"].items():
                 spots = spot_factory.batch_create(spot_type, freq, **config)

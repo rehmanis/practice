@@ -81,3 +81,7 @@ vehicle from that spot.
     NearestParkingStrategy. (park to the spot that is nearest)
 
 * Payment
+
+## Class diagram
+
+![class diagram](./class_diagram.png)

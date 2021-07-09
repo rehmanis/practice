@@ -56,7 +56,7 @@ class MotorCycleSpotBuilder:
     def __init__(self):
         self.id = 0
 
-    def __call__(self, **_ignored):
+    def __call__(self, **_ignored) -> MotorCycleParkingSpot:
         self.id += 1
         return MotorCycleParkingSpot(f"S{self.id}")
 
@@ -65,7 +65,7 @@ class CompactSpotBuilder:
     def __init__(self):
         self.id = 0
 
-    def __call__(self, **_ignored):
+    def __call__(self, **_ignored) -> CompactParkingSpot:
         self.id += 1
         return CompactParkingSpot(f"C{self.id}")
 
@@ -74,7 +74,7 @@ class LargeSpotBuilder:
     def __init__(self):
         self.id = 0
 
-    def __call__(self, **_ignored):
+    def __call__(self, **_ignored) -> LargeParkingSpot:
         self.id += 1
         return LargeParkingSpot(f"L{self.id}")
 

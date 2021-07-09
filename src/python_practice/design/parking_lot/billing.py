@@ -1,12 +1,14 @@
 from abc import ABC
 from abc import abstractclassmethod
+from dataclasses import dataclass
 
 from ticket import ParkingTicket
 
 
+@dataclass
 class Receipt:
-    def __init__(self, invoice_id, amount_due) -> None:
-        pass
+    invoice_id: str
+    amount_due: str
 
 
 class BillingStrategy(ABC):
@@ -14,7 +16,7 @@ class BillingStrategy(ABC):
         pass
 
     @abstractclassmethod
-    def calculate(self, ticket: ParkingTicket):
+    def calculate(self, ticket: ParkingTicket) -> Receipt:
         pass
 
 

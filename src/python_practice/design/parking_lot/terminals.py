@@ -22,14 +22,10 @@ class Terminal:
     def id(self):
         return self._id
 
-    # @property
-    # def floor_id(self):
-    #     return self._floor_id
-
 
 class EntryTerminal(Terminal):
     def __init__(self, id):
-        self._id = id
+        super().__init__(id)
         self._curr_ticket_id = 0
 
     def get_ticket(self, spot: ParkingSpot) -> ParkingTicket:
@@ -50,7 +46,7 @@ class EntryTerminalBuilder:
     def __init__(self):
         self._id = 0
 
-    def __call__(self, **_ignored):
+    def __call__(self, **_ignored) -> EntryTerminal:
         self._id += 1
         return EntryTerminal(f"TENTRY{self._id}")
 
@@ -59,7 +55,7 @@ class ExitTerminalBuilder:
     def __init__(self):
         self._id = 0
 
-    def __call__(self, **_ignored):
+    def __call__(self, **_ignored) -> ExitTerminal:
         self._id += 1
         return ExitTerminal(f"TEXIT{self._id}")
 

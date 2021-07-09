@@ -45,7 +45,7 @@ class FillBottomFirstBuilder:
     def __init__(self):
         pass
 
-    def __call__(self, **kwargs):
+    def __call__(self, **kwargs) -> FillBottomFirst:
         spots = kwargs["spots"]
         return FillBottomFirst(spots)
 
