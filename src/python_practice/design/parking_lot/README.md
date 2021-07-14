@@ -20,7 +20,7 @@
 
 * Do we have multiple types of spots or just one?
 
-    let say for now you have three types of spots. Large, medium and small
+    let say for now you have three types of spots. Large, compact and small/Motorcycle
 
 * Do we have one level or multiple
 
@@ -42,7 +42,7 @@ the costs different for different type of spot?
 
 * Do we allow small vehicle to park on medium or large spot?
 
-    yes small(motorcycle) size can be parked in medium or large if small is not available.  Medium(car) can be parked
+    yes small(motorcycle) size can be parked in medium or large if small is not available.  Medium(compact car) can be parked
     in large spot but large(Bus) can only be parked in large spot
 
 * Any premium parking spots (for example handicaps, or reserved etc)?
@@ -55,32 +55,45 @@ the costs different for different type of spot?
 
 ## determine use cases
 
-* vehicles enters. If parking spot available, goes to that. We assign the parking_spot_id to this vehicle_id(licence plate).
-Mark the spot occupied. Mark a start time to the vehicle
+* Vehicle enters at the entry terminal. This triggers the vehicle entry event (for example, the driver pushes a button
+to get a ticket or some sensors triggers this event). The system finds the appropriate spot for the vehicle (for example, the
+user was required to select the vehicle type or some sensors can pick up the vehicle size). The system outputs a ticket
+with the spot id, level, and issue time. The vehicle then goes to this spot and parks.
 
-* vehicle leaves. We charge it based on the (current time - reserved time) * rate. We mark the spot unoccupied. Unlink the
-vehicle from that spot.
+* Vehicles enters the exit terminal and inserts the ticket or enters the ticket id. This triggers the vehicle exit event. From the ticket id, it has all the information about the issue time and spot type etc and the system calculates the total amount to be paid. The terminal then prints a billing receipt and waits for the driver to pay. Once payment is successful, the vehicle can exit the lot and the parking spot linked to this ticket is marked free
 
 ## identify key objects/classes
 
-* Vehicle(Abstract class/interface)
+* ParkingSpot (Abstract class)
 
-    Extended by Motorcycle, Car, Bus
+    Extended by MotorcycleParkingSpot, CompactParkingSpot, LargeParkingSpot
 
-* ParkingSpot(Abstract class/interface)
+* ParkingAssignmentStrategy (Abstract class)
 
-    Extended by SmallSpot, MediumSpot, LargeSpot
+    Extended by FillBottomLevelFirst, FillNearestToTerminalFirst, etc
+
+* Terminal (Abstract Class)
+
+    Extended by EntryTerminal, ExitTerminal
+
+* Ticket (dataclass)
+
+    contains id, spot, maybe vehicle licence plate etc
+
+* ObjectFactory
+
+    Used to register builders and then use these builders to instantiate objects
+
+* Builders
+
+    Several Builder classes for Terminals, Spots, Assignment Strategies etc
 
 * ParkingLot
 
-    The main class. We can use zip code to identify a parking lot in case we have multiple one
+    Use factory pattern to initialize objects. Can have multiple Parking lots with id being the zip for example.
 
-* ParkingStrategy(interface)
-
-    FirstComeParkingStrategy. (no restriction except for the size as discussed above)
-    NearestParkingStrategy. (park to the spot that is nearest)
-
-* Payment
+Note I have omitted Vehicles from the design but we can also have these and link them to parking spot in case we want
+to store various data related to vehicles for example, their make, year etc
 
 ## Class diagram
 
