@@ -2,11 +2,11 @@
 
 ## What type of question is this?
 
-* Do you want me to come up with a system design, or class diagram/hierarchy or just write methods class etch
+* Do you want me to come up with a system design, or class diagram/hierarchy or just write methods class etc ?
 
 ## Clarify requirements/Scope
 
-* How is the parking lot designed? Is it an open space? Is there an accessibility requirements? (i.e are some parking lots only available after the other ones get filled)
+* How is the parking lot designed? Is it an open space? Are there any accessibility requirements? (i.e are some parking lots only available after the other ones get filled)
 
     Assume for now it is open space and no order to park the car
 
@@ -26,7 +26,7 @@
 
     Yes you have multiple levels
 
-* How many entry and exits do the lot have ?
+* How many entry and exit terminals does the lot have ?
 
     For now lets say we have 1 entries and 1 exits. (follow-up how do you design for more entries and exits?
     Concurrency issues?)
@@ -64,36 +64,41 @@ with the spot id, level, and issue time. The vehicle then goes to this spot and 
 
 ## identify key objects/classes
 
-* ParkingSpot (Abstract class)
+* `ParkingSpot` (Abstract class)
 
     Extended by MotorcycleParkingSpot, CompactParkingSpot, LargeParkingSpot
 
-* ParkingAssignmentStrategy (Abstract class)
+* `ParkingAssignmentStrategy` (Abstract class)
 
     Extended by FillBottomLevelFirst, FillNearestToTerminalFirst, etc
 
-* Terminal (Abstract Class)
+* `Terminal` (Abstract Class)
 
     Extended by EntryTerminal, ExitTerminal
 
-* Ticket (dataclass)
+* `Ticket` (dataclass)
 
     contains id, spot, maybe vehicle licence plate etc
 
-* ObjectFactory
+* `ObjectFactory`
 
     Used to register builders and then use these builders to instantiate objects
 
-* Builders
+* `Builders` (interface)
 
     Several Builder classes for Terminals, Spots, Assignment Strategies etc
 
-* ParkingLot
+* `ParkingLot`
 
-    Use factory pattern to initialize objects. Can have multiple Parking lots with id being the zip for example.
+    Use factory pattern to initialize objects. Can have multiple Parking lots with id being the zip code for example.
 
-Note I have omitted Vehicles from the design but we can also have these and link them to parking spot in case we want
+---
+**NOTE**
+
+I have omitted Vehicles from the design but we can also have these and link them to parking spot in case we want
 to store various data related to vehicles for example, their make, year etc
+
+---
 
 ## Class diagram
 
