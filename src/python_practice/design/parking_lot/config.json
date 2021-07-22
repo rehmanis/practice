@@ -1,0 +1,19 @@
+{
+    "levels" : [
+        {
+            "parking_spots": {
+                "MOTORCYCLE": 2, "COMPACT": 10, "LARGE": 5
+            }
+        },
+        {
+            "parking_spots": {
+                "MOTORCYCLE": 1, "COMPACT": 5, "LARGE": 2
+            }
+        }
+    ],
+    "parking_strategy" : "FILL_BOTTOM",
+    "terminals": {
+        "ENTRY": 1, "EXIT": 1
+    }
+
+}
