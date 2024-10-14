@@ -12,6 +12,7 @@ Assumption:
     4- input stream can have leading or tailing spaces
     5- input stream may or maynot have a newline at the end
 """
+
 import sys
 from typing import Set
 
